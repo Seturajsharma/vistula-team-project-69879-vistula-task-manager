@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Vistula Project</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Supabase JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+        <p>Student ID: <span id="student-id">69879</span></p>
+
+        <!-- Task Form -->
+        <form id="task-form">
+            <input type="text" id="task-title" placeholder="Task title..." required>
+            <textarea id="task-description" placeholder="Task description (optional)..."></textarea>
+            <button type="submit" id="task-submit">Add Task</button>
+        </form>
+
+        <!-- Status & Error Messages -->
+        <div id="status-message"></div>
+
+        <!-- Task List Container -->
+        <div id="task-list"></div>
+
+        <!-- Link to Contribution Page -->
+        <p style="margin-top: 2rem;">
+            <a href="contribution.html" id="contribution-link">View Team Contribution</a>
+        </p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
