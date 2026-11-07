@@ -1,5 +1,5 @@
 {
-  "supabaseUrl": "https://supabase.com/dashboard/project/qikcoziehuqeabluvbae",
-  "supabasePublishableKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpa2NvemllaHVxZWFibHV2YmFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQwNzkyOTIsImV4cCI6MjEwOTY1NTI5Mn0.mUwS1jGMZm941fGmrJ8REtXqJe8AOfovrMSJnfUMbfw",
+  "supabaseUrl": "https://qikcoziehuqeabluvbae.supabase.co/rest/v1/",
+  "supabasePublishableKey": "sb_publishable_W1Oofnccqlx3p-aKHcMPZA_xoPd6t36",
   "tableName": "tasks"
 }
