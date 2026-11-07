@@ -1,5 +1,5 @@
 {
-  "supabaseUrl": "https://qikcoziehuqeabluvbae.supabase.co/rest/v1/",
+  "supabaseUrl": "https://qikcoziehuqeabluvbae.supabase.co",
   "supabasePublishableKey": "sb_publishable_W1Oofnccqlx3p-aKHcMPZA_xoPd6t36",
   "tableName": "tasks"
 }
