@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3f6f4">
+    <title>Team Contribution</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: "Segoe UI", sans-serif;
+            color: #23332d;
+            background: #f3f6f4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            margin: 0;
+            padding: 24px;
+            place-items: center;
+            background: linear-gradient(145deg, #f3f6f4 0%, #e8f0ec 100%);
+        }
+
+        main {
+            width: min(100%, 520px);
+            padding: clamp(24px, 6vw, 48px);
+            border: 1px solid #d5e0da;
+            border-top: 5px solid #39745a;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 16px 40px rgb(35 51 45 / 8%);
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(1.75rem, 6vw, 2.25rem);
+            line-height: 1.15;
+        }
+
+        .contributor-name {
+            margin: 0 0 28px;
+            color: #52635b;
+            font-size: 1.125rem;
+        }
+
+        button {
+            min-height: 44px;
+            padding: 0 18px;
+            border: 0;
+            border-radius: 5px;
+            background: #286346;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e5038;
+        }
+
+        button:focus-visible,
+        a:focus-visible {
+            outline: 3px solid #dfaa43;
+            outline-offset: 3px;
+        }
+
+        #student-id,
+        #status-message {
+            min-height: 1.5em;
+            margin: 18px 0 0;
+        }
+
+        #student-id {
+            color: #286346;
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        #status-message {
+            color: #a12e2e;
+        }
+
+        .return-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #286346;
+            font-weight: 600;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Team Contribution</h1>
+        <p class="contributor-name">Jishnu Menon</p>
+        <button type="button" id="show-contributor">Show Contributor</button>
+        <p id="student-id" aria-live="polite"></p>
+        <p id="status-message" role="alert" aria-live="polite"></p>
+        <a class="return-link" href="index.html">Return to Task Manager</a>
+    </main>
+
+    <script>
+        const showContributorButton = document.getElementById('show-contributor');
+        const studentIdOutput = document.getElementById('student-id');
+        const statusMessage = document.getElementById('status-message');
+
+        showContributorButton.addEventListener('click', async () => {
+            studentIdOutput.textContent = '';
+            statusMessage.textContent = '';
+
+            try {
+                const response = await fetch('contribution.json');
+                if (!response.ok) {
+                    throw new Error(`Request failed with status ${response.status}`);
+                }
+
+                const contributor = await response.json();
+                if (!contributor.studentId) {
+                    throw new Error('Student details are missing.');
+                }
+
+                studentIdOutput.textContent = `Student ID: ${contributor.studentId}`;
+            } catch (error) {
+                statusMessage.textContent = 'Unable to load contributor details. Please try again.';
+            }
+        });
+    </script>
+</body>
+</html>
